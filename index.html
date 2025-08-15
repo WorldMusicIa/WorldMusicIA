@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>World Oficial Site</title>
+<style>
+  body {
+    background: linear-gradient(135deg, #0000ff 0%, #ff00ff 100%);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    min-height: 100vh;
+  }
+  header h1 {
+    font-size: 1.8em;
+    text-shadow: 0 0 8px #ff00ff;
+  }
+  .highlight {
+    background: rgba(255, 20, 147, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    font-size: 1.3em;
+    max-width: 700px;
+    margin: auto;
+    box-shadow: 0 0 20px #ff00ff;
+  }
+  .members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto 60px auto;
+  }
+  .member {
+    width: 140px;
+    height: 250px; /* formato 9:16 */
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 8px #ff00ff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: white;
+    text-align: center;
+  }
+  .member:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff69b4;
+  }
+  nav {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 15px;
+    padding: 15px 20px;
+    box-shadow: 0 0 15px #ff00ff;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+  }
+  nav a {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-decoration: none;
+    text-shadow: 0 0 5px #ff00ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  nav a span.desc {
+    font-weight: normal;
+    font-size: 0.7em;
+    color: #ffc0e9;
+  }
+  footer {
+    margin-top: 50px;
+    font-size: 0.9em;
+    color: #ffe6ff;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+  footer a {
+    color: #ff69b4;
+    text-decoration: none;
+  }
+  footer .rights {
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #ccc;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>World Oficial Site</h1>
+</header>
+
+<section class="highlight">
+  O grupo WORLD é composto por 14 membros incríveis, vindos de diferentes partes do mundo.
+</section>
+
+<section class="members" id="members-container">
+  <!-- Membros via JS -->
+</section>
+
+<!-- Loja -->
+<section id="loja">
+  <h2>Loja</h2>
+  <p>Em breve, nossa linha exclusiva de produtos estará disponível.</p>
+</section>
+
+<!-- Galeria -->
+<section id="galeria">
+  <h2>Galeria</h2>
+  <p>Fotos e vídeos dos nossos momentos inesquecíveis.</p>
+</section>
+
+<!-- Contato -->
+<footer id="contato">
+  <p>E-mail: <a href="mailto:worldmusiiacofficial@gmail.com">worldmusiiacofficial@gmail.com</a></p>
+  <p>Instagram: <a href="https://instagram.com/worldmusiciaofficial" target="_blank">@worldmusiciaofficial</a></p>
+  <div class="rights">© 2025 Todos os direitos reservados.</div>
+</footer>
+
+<!-- Menu -->
+<nav>
+  <a href="#loja">
+    Loja
+    <span class="desc">Em breve, nossa linha exclusiva de produtos estará disponível.</span>
+  </a>
+  <a href="#galeria">
+    Galeria
+    <span class="desc">Fotos e vídeos dos nossos momentos inesquecíveis.</span>
+  </a>
+  <a href="#contato">Contato</a>
+</nav>
+
+<script>
+  const membersContainer = document.getElementById('members-container');
+  const images = [
+    "membro1.png", // Membro 1
+    "", "", "", "", "", "", "", "", "", "", "", "", "" // outros membros
+  ];
+  for(let i = 1; i <= 14; i++) {
+    const div = document.createElement('div');
+    div.className = 'member';
+    if(images[i-1]) {
+      div.style.backgroundImage = `url('${images[i-1]}')`;
+    } else {
+      div.style.background = 'rgba(255, 20, 147, 0.3)';
+      div.textContent = `Membro ${i}`;
+      div.style.display = 'flex';
+      div.style.alignItems = 'center';
+      div.style.justifyContent = 'center';
+      div.style.fontWeight = 'bold';
+    }
+    div.addEventListener('click', () => {
+      alert(`Aqui você pode adicionar fotos ou informações do Membro ${i}`);
+    });
+    membersContainer.appendChild(div);
+  }
+</script>
+
+</body>
+</html>
